@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { login } from '@/lib/features/authentication/authSlice';
+import { logIn } from '@/lib/features/authentication/authSlice';
 
 function Login({handleClick}) {
     const dispatch = useAppDispatch();
@@ -60,7 +60,7 @@ function Login({handleClick}) {
         } catch (error) {
             // 
         }
-        dispatch(login({username, password, role}));
+        dispatch(logIn({username, password, role}));
         switch (user.role) {
             case 'user':
                 router.push('/dashboard');
